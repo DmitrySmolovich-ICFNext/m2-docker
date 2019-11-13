@@ -16,12 +16,15 @@ services:
           - PHP_UPLOAD_MAX_FILESIZE=1024M
         volumes:
           - /Users/dsmolovich/Documents/REPOS/m2_at_docker/src/magento2ce:/app:cached
+          - /Users/dsmolovich/Documents/REPOS/m2_at_docker/src/docker/web/xdebug.ini:/etc/php/7.0/mods-available/xdebug.ini
         ports:
           - "80:80"
           - "443:443"
           - "32823:22"
         links:
           - mysql
+          # link web service to Redis service
+          - redis
     mysql:
         image: mariadb:10
         container_name: mysql
@@ -47,7 +50,17 @@ services:
           - mysql:db
         depends_on:
           - mysql
-
+    #add Redis service and connect to internal data volume
+    redis:
+        image: redis:latest
+        container_name: redis
+        restart: always
+        volumes:
+          - redis-data:/data
+                    
 volumes:
     db-data:
         external: false
+    #add internal data volume so that data persists
+    redis-data:
+        external: false   
