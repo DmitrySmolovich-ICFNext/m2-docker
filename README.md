@@ -51,7 +51,8 @@ Based on ["Docker for Magento 2 Development" article](https://www.magemodule.com
         --cache-backend-redis-server=redis \
         --cache-backend-redis-db=1 \
         --page-cache-redis-server=redis \
-        --page-cache-redis-db=1 && \
+        --page-cache-redis-db=0 && \
+    bin/magento deploy:mode:set developer && \
     exit
     ```
 7. Add `m2.local` hostname to your `/etc/hosts` file
