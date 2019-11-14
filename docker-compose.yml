@@ -23,7 +23,7 @@ services:
           - php.xdebug.idekey=PHPSTORM
 
         volumes:
-          - /Users/dsmolovich/Documents/REPOS/m2_at_docker/src/magento2ce:/app:cached
+          - ./src/magento2ce:/app:cached
         ports:
           - "80:80"
           - "443:443"

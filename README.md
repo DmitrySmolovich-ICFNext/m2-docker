@@ -4,25 +4,27 @@ Based on ["Docker for Magento 2 Development" article](https://www.magemodule.com
 
 ## Steps to spin up docker containers
 1. Clone this repository
-2. Make a `src` dir 
+2. Clone magento2 
     ```
-    mkdir src
+    git clone git@github.com:magento/magento2.git src/magento2ce
     ```
-3. Clone magento2 
+3. Checkout magento from `2.2.10` tag
     ```
-    git clone git@github.com:magento/magento2.git src/magento2ca
+    git -C "src/magento2ce" checkout 2.2.10
     ```
-4. Change magento's branch to `2.2.0`
-5. Spin up containers 
+4. Spin up containers 
     ```
     docker-compose up -d --build
     ```
-6. Run `bash` session inside the `web` containter
+5. Run `bash` session inside the `web` containter
     ```
     docker exec -it web bash
     ```
-7. Install magento
+6. Install magento
     ```
+    ADMIN_EMAIL="dmitry.smolovich@icfnext.com" && \
+    ADMIN_PASSWORD="2124R2016$26" && \
+    HOST_NAME="m2.local" && \
     cd /app && \
     composer install && \
     bin/magento setup:install \
@@ -49,8 +51,11 @@ Based on ["Docker for Magento 2 Development" article](https://www.magemodule.com
         --cache-backend-redis-server=redis \
         --cache-backend-redis-db=1
         --page-cache-redis-server=redis \
-        --page-cache-redis-db=1
-    
+        --page-cache-redis-db=1 && \
+    exit
     ```
 7. Add `m2.local` hostname to your `/etc/hosts` file
+    ```
+    sudo echo '127.0.0.1 m2.local' >> /etc/hosts
+    ```
 8. Open [m2.local](https://m2.local/) in your browser
