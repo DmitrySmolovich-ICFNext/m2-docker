@@ -49,7 +49,7 @@ Based on ["Docker for Magento 2 Development" article](https://www.magemodule.com
         --session-save=files \
         --cache-backend=redis \
         --cache-backend-redis-server=redis \
-        --cache-backend-redis-db=1
+        --cache-backend-redis-db=1 \
         --page-cache-redis-server=redis \
         --page-cache-redis-db=1 && \
     exit
