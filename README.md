@@ -8,9 +8,9 @@ Based on ["Docker for Magento 2 Development" article](https://www.magemodule.com
     ```
     git clone git@github.com:magento/magento2.git src/magento2ce
     ```
-3. Checkout magento from `2.2.10` tag
+3. Checkout magento from `2.2.9` tag
     ```
-    git -C "src/magento2ce" checkout 2.2.10
+    git -C "src/magento2ce" checkout 2.2.9
     ```
 4. Spin up containers 
     ```
