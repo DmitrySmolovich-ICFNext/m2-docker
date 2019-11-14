@@ -14,9 +14,16 @@ services:
           - PHP_MAX_EXECUTION_TIME=300
           - PHP_POST_MAX_SIZE=500M
           - PHP_UPLOAD_MAX_FILESIZE=1024M
+          - PHP_DEBUGGER=xdebug
+          - XDEBUG_REMOTE_AUTOSTART=0
+          - XDEBUG_REMOTE_CONNECT_BACK=0
+          - XDEBUG_REMOTE_HOST=host.docker.internal
+          - XDEBUG_REMOTE_PORT=9009
+          - php.xdebug.remote_enable=1
+          - php.xdebug.idekey=PHPSTORM
+
         volumes:
           - /Users/dsmolovich/Documents/REPOS/m2_at_docker/src/magento2ce:/app:cached
-          - /Users/dsmolovich/Documents/REPOS/m2_at_docker/src/docker/web/xdebug.ini:/etc/php/7.0/mods-available/xdebug.ini
         ports:
           - "80:80"
           - "443:443"
