@@ -23,7 +23,7 @@ Based on ["Docker for Magento 2 Development" article](https://www.magemodule.com
 6. Install magento
     ```
     ADMIN_EMAIL="dmitry.smolovich@icfnext.com" && \
-    ADMIN_PASSWORD="2124R2016$26" && \
+    ADMIN_PASSWORD=DemoPassword0 && \
     HOST_NAME="m2.local" && \
     cd /app && \
     composer install && \
