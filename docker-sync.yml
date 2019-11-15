@@ -1,0 +1,9 @@
+version: "2"
+options:
+  verbose: true # make the whole sync verbose
+syncs:
+  magento-src:
+    notify_terminal: true
+    src: 'src/magento2ce/'
+    sync_excludes: ['.git', '.idea', 'var', 'pub/static']
+    sync_userid: '1000'

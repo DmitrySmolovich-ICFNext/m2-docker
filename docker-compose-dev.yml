@@ -22,7 +22,7 @@ services:
           - php.xdebug.remote_enable=1
           - php.xdebug.idekey=PHPSTORM
         volumes:
-          - ./src/magento2ce:/app:cached
+          - magento-src:/app:nocopy
         ports:
           - "80:80"
           - "443:443"
@@ -71,4 +71,4 @@ volumes:
     redis-data:
         external: false
     magento-src:
-        external: false
+        external: true

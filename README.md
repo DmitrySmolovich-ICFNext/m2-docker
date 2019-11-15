@@ -22,17 +22,15 @@ Based on ["Docker for Magento 2 Development" article](https://www.magemodule.com
     ```
 6. Install magento
     ```
-    ADMIN_EMAIL="dmitry.smolovich@icfnext.com" && \
-    ADMIN_PASSWORD=DemoPassword0 && \
     HOST_NAME="m2.local" && \
     cd /app && \
     composer install && \
     bin/magento setup:install \
         --admin-firstname=First \
         --admin-lastname=Last \
-        --admin-email="$ADMIN_EMAIL" \
+        --admin-email="dmitry.smolovich@icfnext.com" \
         --admin-user=admin \
-        --admin-password="$ADMIN_PASSWORD" \
+        --admin-password=DemoPassword0 \
         --base-url=https://"$HOST_NAME" \
         --base-url-secure=https://"$HOST_NAME" \
         --backend-frontname=admin \
@@ -49,9 +47,10 @@ Based on ["Docker for Magento 2 Development" article](https://www.magemodule.com
         --session-save=files \
         --cache-backend=redis \
         --cache-backend-redis-server=redis \
-        --cache-backend-redis-db=1 \
+        --cache-backend-redis-db=0 \
+        --page-cache=redis \
         --page-cache-redis-server=redis \
-        --page-cache-redis-db=0 && \
+        --page-cache-redis-db=1 && \
     bin/magento deploy:mode:set developer && \
     exit
     ```
